@@ -5,7 +5,7 @@
 * [课程练习](#课程练习)
 ---
 ## 笔记整理
-* [笔记整理wiki](/wiki)
+* [笔记整理wiki](https://github.com/gaoyushu/JS-advanced-lessons/wiki)
 ---
 ## 课程练习
 * [课程练习汇总](/课程练习)
