@@ -1,0 +1,39 @@
+<!-- 04-1 JS语法 表达式及语句综述 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    // 字面量 / 标识符 / 保留字 / 表达式 / 语句 / ES5
+
+    // ES5
+    // -> ES5 ECMAScript是一个语言标准
+    // -> ES5是ECMAScript5简写
+    // -> JavaScript是完全基于ECMAScript实现的脚本语言
+    // -> 当前主流版本 -> ES5 ES6
+
+    // ES5没有块作用域（块内变量定义作用域全局）
+    // 函数可以给变量一个局部作用域 而块不可以
+    if(true){
+        var b  = 30;
+    }
+    console.log(b); // 30
+
+    var username;
+    if(false){
+        username = "zhangsan";
+    }
+    console.log(username); // undefined
+
+    for(var i = 0; i < 3; i++){
+    }
+    console.log(i); // 3
+</script>
+</html>

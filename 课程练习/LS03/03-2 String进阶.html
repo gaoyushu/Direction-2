@@ -1,0 +1,90 @@
+<!-- String 进阶 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>3-2 String 进阶</title>
+</head>
+<body>
+</body>
+<script>
+
+    var str="abcdefh";
+
+    // charAt()
+    // 返回指定位置的字符
+    str.charAt(2); // c
+
+
+    /* 字符串构造器方法（静态方法） */
+
+    // fromCharCode()
+    // 将特定unicode转换为字符
+    String.fromCharCode(97,98,99); // "abc"
+
+
+    /* 字符串原型方法 - 提取字符串 */
+
+    // charCodeAt()
+    // 将特定索引位置的字符转换为unicode码
+    str.charCodeAt(0); // 97
+
+    // slice（截取的起始位置，截取的结束位置）
+    // 截取特定位置字符串
+    // 如果截取的结束位置小于0的 结束位置为str.length+结束截取结束参数
+    str.slice(0,-1); // abcdef
+    str.slice(5,2); // ""
+
+    // substr(截取的起始位置，截取的长度)
+    // 截取长度可以缺省 表示从起始位置到字符串结束
+    str.substr(0,3); // "abc"
+
+    // substring(截取起始位置，截取结束位置)
+    // 如果截取起始位置值 > 截取结束位置值 两者会互换位置
+    // 超出 0-str.length 范围的会被截断
+    str.substring(5,2) // "cde"
+
+    // split(分割符号，（限定生成数组的长度）)
+    str.split(); // ["abcdefh"]
+    str.split(""); // ["a", "b", "c", "d", "e", "f", "h"]
+    str.split("", 2) // ["a", "b"]
+
+
+    /* 字符串原型方法 - 字符串变换 */
+
+    // trim()
+    // 去除字符串前后空格 字符之间的空格无法去除
+    var str1 = "   ab  c  ";
+    str1.trim(); // "ab  c"
+
+    // concat()
+    // 拼接多个字符串
+    var str2 = "abc";
+    str2.concat("def", "ghi"); // "abcdefghi"
+
+    // toLowerCase / toUpperCase();
+    // 转换大小写
+
+
+    /* 字符串原型方法 - 检索和比较 */
+
+    // indexOf()
+    // 查找字符串第一次出现的位置
+    // 从0开始 查到返回第一次出现的位置 否则返回-1
+    str.indexOf("b"); // 1
+    str.indexOf("ba") // -1
+
+    // lastIndexOf()
+    // 查找字符串最后一次出现的位置
+    str2.concat(str).lastIndexOf("b"); // 4 ("abcabcdefh")
+
+    // search()
+    //
+
+    // match()
+
+    // replace()
+    
+</script>
+</html>

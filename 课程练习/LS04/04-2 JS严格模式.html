@@ -1,0 +1,90 @@
+<!-- 04-2 JS严格模式 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    /* 应用区域 */
+
+    // 全局的 对所有页面js代码均应用严格模式
+    //'use strict'
+
+    // 局部的 函数范围内应用严格模式
+    function foo() {
+        "use strict"
+    }
+
+    /* 模式特性 */
+
+    // 1.严格模式下的全局变量问题
+    // 全局变量时JS中比较大的一个问题
+
+    // 非严格模式
+    // -> 如果未用var声明变量 变量自动提升为全局变量
+    function fn1(){
+        username1 = "zhangsan";
+    }
+    fn1();
+    console.log(username1); // zhangsan
+
+    // 严格模式
+    // -> 全局变量需显示声明
+    function fn2(){
+        'use strict'
+        username2 = "zhangsan";
+    }
+    fn2();
+    console.log(username2); // 报错
+
+    // 2.严格模式下的指向问题
+
+    // -> 非严格模式下指向全局变量（一般函数->window / node环境-> global）
+    function fn3(){
+        console.log(this); 
+    }
+    fn3(); // 指向全局对象 -> window
+
+    // -> 严格模式下指向undefined（一般函数中）
+    function fn4(){
+        'use strict'
+        console.log(this);
+    }
+    fn4(); // undefined
+
+    // -> 判断当前是否为严格模式
+    // 'use strict'
+    function judge(){
+        var result = (this === undefined? true: false);
+        return result;
+    }
+    if(judge()){
+        console.log("严格模式");
+    }
+    else{
+        console.log("非严格模式");
+    } // 非严格模式 / 严格模式（去掉注释后）
+
+    // 3.严格模式下属性
+    // -> 严格模式下禁止删除不可改变的属性和未定义的变量
+    // -> 严格模式下禁止函数参数重名
+    var str = "abcdef";
+    str.length = 1;
+    console.log(str.length); // 6
+
+    // 过程
+    var str = "abcdef";
+    var strObject = new String(str);
+    strObject.length = 1;
+    console.log(new String(str).length); // 6
+
+</script>
+</html>
