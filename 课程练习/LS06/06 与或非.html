@@ -1,0 +1,56 @@
+<!-- && 和 || -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // &&：左真取右 左假取左
+    // ||：左假取右 左真取左
+
+    // 与或应用
+    var score = 76;
+    if(score>90){
+        console.log("优秀");
+    }else if(score>75){
+        console.log("良好");
+    }else if(score>60){
+        console.log("及格");
+    }else{
+        console.log("不及格");
+    }
+
+    console.log((score>90 && "优秀") || (score>75&& "良好") || (score>60 && "及格") || "不及格");
+
+    // 使用||设置函数参数的默认值
+    // 允许形参和实参个数不相同
+    function sum1(x, y ,z){
+        x=x;
+        y=y;
+        z=z;
+        return x+y+z;
+    }
+    console.log(sum1()); // NaN 未报错
+
+    function sum2(x, y ,z){
+        x=x||1;
+        y=y||2;
+        z=z||3;
+        return x+y+z;
+    }
+    console.log(sum2()); // 6 左假取右 都取的默认值相加
+
+    // ES6支持默认参数
+    function sum3(x = 1, y = 2, z = 3){
+        return x+y+z;
+    }
+    console.log(sum3());
+</script>
+</html>

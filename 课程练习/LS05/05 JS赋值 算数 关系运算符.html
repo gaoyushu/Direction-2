@@ -1,0 +1,57 @@
+<!-- 05 JS赋值 算数 关系运算符 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    /* 赋值 */
+
+    // 发反写
+    // 判等时将字面量放在前面 避免判等写成赋值
+    var a = 45;
+    if(a = 54){
+        console.log("相等");
+    }else{
+        console.log("不相等");
+    } // 相等
+
+    /* if(45 = a){ // 
+        console.log("相等");
+    }else{
+        console.log("不相等");
+    } // 报错 */
+
+
+
+    /* 算数 */
+
+    // 注意前++和后++的顺序
+    var x = 1;
+    console.log(++x); // 2
+    console.log(x++); // 2
+    console.log(x); // 3
+
+    // 注意前++和后++的隐式类型转换
+    var x = "1";
+    console.log(++x) // 2
+
+    // +=不会进行类型的转换
+    var x = "1";
+    console.log(x += 1) // "11"
+
+
+
+    /* 关系运算符 */
+
+    
+</script>
+</html>
