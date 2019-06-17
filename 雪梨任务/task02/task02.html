@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task02</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // 任务：task02-1
+    // 学号：2017011951
+    // 姓名：高予蜀
+
+    function funArr(brr){
+        var arr = new Array();
+        for(var i = 0; i < brr.length; i++){
+            if(typeof brr[i] == 'string'){
+                arr[i] = brr[i].trim();
+            }else if(typeof brr[i] == 'boolean'){
+                arr[i] = brr[i] + 0;
+            }else if(typeof brr[i] == 'number'){
+                arr[i] = brr[i].toFixed(2);
+            }else{
+                arr[i] = "Wrong type!";
+            }
+        }
+        return arr;
+    }
+    var brr = ["   这是一句带 的string  ", 123.456, true, false];
+    var arr = funArr(brr);
+    console.log(arr); // ["这是一句带 的string", "123.46", 1, 0]
+
+
+    // 任务：task02-2
+    // 学号：2017011951
+    // 姓名：高予蜀
+
+    function funName(name){
+        var str = "赵钱孙李周吴郑王冯陈楮卫蒋沈韩杨朱秦尤许何吕施张孔曹严华金魏陶姜";
+        var index = str.indexOf(name);
+        if(-1 == index){
+            console.log("该姓氏不存在！");
+        }else if(0 == index){
+            console.log("该姓在字符串的第1位");
+            console.log("该姓氏之前姓氏不存在！");
+        }else{
+            console.log("该姓在字符串的第"+ (index+1) + "位");
+            console.log("该姓氏之前姓氏为：" + str.slice(0, index));
+        }
+    }
+    funName("高"); // 该姓氏不存在！
+    funName("赵"); // 该姓在字符串的第1位 / 该姓氏之前姓氏不存在！
+    funName("楮"); // 该姓在字符串的第11位 / 该姓氏之前姓氏为：赵钱孙李周吴郑王冯陈
+
+
+</script>
+</html>

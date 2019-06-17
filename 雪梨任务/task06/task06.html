@@ -1,0 +1,161 @@
+<!-- 任务：task06 -->
+<!-- 学号：2017011951 -->
+<!-- 姓名：高予蜀 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>calculate</title>
+    <meta http-equiv="Content-Type" content="text/html;charaset = utf-8" />
+    <style type="text/css">
+        body {
+            font:bolder 26px 楷体;
+        }
+        #result {
+            text-align:right;
+        }
+        table,td {
+            border:1px solid #C0C0C0;
+        }
+        td {
+            padding:10px;
+        }
+        button {
+            width:50px;
+            height:50px;
+        }
+        button:hover{
+            box-shadow: 3px 3px 3px #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="3" id="result">
+                0
+            </td>
+            <td>
+                <button type="button" value="C">
+                    C
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="1" >
+                    1
+                </button>
+            </td>
+            <td>
+                <button type="button" value="2">
+                    2
+                </button>
+            </td>
+            <td>
+                <button type="button" value="3">
+                    3
+                </button>
+            </td>
+            <td>
+                <button type="button" value="+">
+                    +
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="4">
+                    4
+                </button>
+            </td>
+            <td>
+                <button type="button" value="5">
+                    5
+                </button>
+            </td>
+            <td>
+                <button type="button" value="6">
+                    6
+                </button>
+            </td>
+            <td>
+                <button type="button" value="-">
+                    -
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="7">
+                    7
+                </button>
+            </td>
+            <td>
+                <button type="button" value="8">
+                    8
+                </button>
+            </td>
+            <td>
+                <button type="button" value="9">
+                    9
+                </button>
+            </td>
+            <td>
+                <button type="button" value="*">
+                    *
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" value="0">
+                    0
+                </button>
+            </td>
+            <td>
+                <button type="button" value=".">
+                    .
+                </button>
+            </td>
+            <td>
+                <button type="button" value="=">
+                    =
+                </button>
+            </td>
+            <td>
+                <button type="button" value="/">
+                    /
+                </button>
+            </td>
+        </tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+
+    $("button").click(function(){
+        
+        let result = $("#result").html();
+        let val = $(this).val();
+        let num = /^[+-]?[1-9]?[0-9]*\.[0-9]*$/;
+
+        if("=" == val){
+            result=eval(result);
+            if(num.test(result)){
+                result =  result.toFixed(2);
+            }
+            $("#result").html(result);
+        }else if('C' == val){
+            $("#result").html("0");
+        }else{
+            if(result.trim() =="0"){
+                result=""
+            }
+            $("#result").html(result + val);
+        }
+    })
+
+</script>
+</html>

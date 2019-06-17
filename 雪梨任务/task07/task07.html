@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            width: 200px;
+            height: 60px;
+            margin: 0 auto;
+            display: block;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">开始计数</button>
+</body>
+<script>
+
+    // 错误代码
+    // let btn = document.getElementById("btn");
+    // let count = 0;
+    // let intervalId;
+    // btn.onclick = function() {
+    //     intervalId = setInterval(function() {
+    //             this.innerHTML = count++
+    //     }, 1000);
+    // }
+
+    // 1.bind硬绑定
+    // -> 改变this的指向
+    // -> bind只有一个函数 而且不会立即执行 只是将一个值绑定到函数的this上 并将绑定好的函数返回
+
+    // let btn = document.getElementById("btn");
+    // let count = 0;
+    // let intervalId;
+    // let num = 0;
+    
+    // function foo(){
+    //     this.innerHTML = count++;
+    // }
+
+    // btn.onclick = function() {
+    //     num++;
+    //     if(num%2 == 0){
+    //         clearInterval(intervalId);
+    //     }else{
+    //         intervalId = setInterval(function(){
+    //             foo = foo.bind(btn);
+    //             foo();
+    //         }, 1000);
+    //     }        
+    // }
+
+    // 2.软绑定
+    // -> 定义一个变量 转存this
+
+    let btn = document.getElementById("btn");
+    let count = 0;
+    let intervalId;
+    let num = 0;
+
+    btn.onclick = function() {
+        num++;
+        let self = this;
+        if(num%2 == 0){
+            clearInterval(intervalId);
+        }else{
+            intervalId = setInterval(function(){
+                self.innerHTML = count++;
+            }, 1000);
+        }        
+    }
+
+    // // 3.箭头函数
+    // // -> 用这种特殊的函数 完全根据外部作用域决定this
+
+    // let btn = document.getElementById("btn");
+    // let count = 0;
+    // let intervalId;
+    // let num = 0;
+
+    // btn.onclick = function() {
+    //     num++;
+    //     if(num%2 == 0){
+    //         clearInterval(intervalId);
+    //     }else{
+    //         intervalId = setInterval(() => {
+    //             this.innerHTML = count++;
+    //         }, 1000);
+    //     }        
+    // }
+
+</script>
+</html>
